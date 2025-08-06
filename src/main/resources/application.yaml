@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: email_connect
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/email_connect?createDatabaseIfNotExist=true
+    username: root
+    password: admin
+  jpa:
+    show-sql: true
+
+  brevo:
+    apiKey: ${BREVO_API_KEY}
+    baseUrl: https://api.brevo.com/v3
+    senderEmail: ${BREVO_SENDER_EMAIL}
+    senderName: ${BREVO_SENDER_NAME}
+    attachmentPath: ${BREVO_ATTACHMENT_PATH}

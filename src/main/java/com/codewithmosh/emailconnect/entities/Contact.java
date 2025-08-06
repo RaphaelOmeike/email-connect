@@ -3,6 +3,8 @@ package com.codewithmosh.emailconnect.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +29,10 @@ public class Contact {
 
     @Column(name = "company_address")
     private String companyAddress;
+
+    @Column(name = "file_name")
+    private String fileName;
+
+    @Column(name = "created_at", insertable = false, updatable = false)
+    private LocalDateTime createdAt;
 }
