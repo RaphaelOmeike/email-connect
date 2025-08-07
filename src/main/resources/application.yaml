@@ -14,4 +14,4 @@ spring:
     baseUrl: https://api.brevo.com/v3
     senderEmail: ${BREVO_SENDER_EMAIL}
     senderName: ${BREVO_SENDER_NAME}
-    attachmentPath: ${BREVO_ATTACHMENT_PATH}
+    attachmentPath: ${DEFAULT_ATTACHMENT_PATH}

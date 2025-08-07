@@ -36,8 +36,8 @@ public class BrevoEmailService {
             String url = API_URL + "/smtp/emails";
             Gson gson = new Gson();
 
-            String encodedFile = fileService.encodeFileToBase64(AppContext.attachmentPath);
-            String attachmentName= AppContext.attachmentName;
+            String encodedFile = fileService.encodeFileToBase64(AppContext.getAttachmentPath());
+            String attachmentName= AppContext.getAttachmentName();
             BrevoAttachment attachment = new BrevoAttachment(encodedFile, attachmentName);
 
             var request = new BrevoEmailRequest(
@@ -68,12 +68,12 @@ public class BrevoEmailService {
 
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpResponse<String> postResponse = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
-
+            System.out.println(postResponse);
 //            var response = gson.fromJson(postResponse.body(), .class);
 //            return response; //not sure
         }
         catch (Exception ex) {
-            System.out.println("Error: Failed to create Quidax sub-account.");
+            System.out.println("Error: Failed to send email.");
             System.out.println(ex.getMessage());
         }
     }
