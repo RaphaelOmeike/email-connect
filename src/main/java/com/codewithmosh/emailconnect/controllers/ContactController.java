@@ -27,14 +27,17 @@ public class ContactController {
 
 
     @GetMapping("/sample")
-    public ResponseEntity<SendEmailRequest> getSampleRequest() {
+    public ResponseEntity<ContactDto> getSampleRequest() {
         SendEmailRequest request = new SendEmailRequest();
         request.setFirstName("John");
         request.setLastName("Doe");
         request.setEmail("john.doe@example.com");
         request.setCompanyAddress("123 Java Avenue, Spring City");
 
-        return ResponseEntity.ok(request);
+        emailService.sendEmailWithAttachment(request);
+        var response = contactService.createContact(request);
+
+        return ResponseEntity.ok(response);
     }
 
 

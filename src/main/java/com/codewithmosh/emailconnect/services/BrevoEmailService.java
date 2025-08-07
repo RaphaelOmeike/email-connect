@@ -20,7 +20,7 @@ public class BrevoEmailService {
     @Value("${spring.brevo.apiKey}")
     private String API_KEY;
 
-    @Value("${spring.brevo.apiUrl}")
+    @Value("${spring.brevo.baseUrl}")
     private String API_URL;
 
     @Value("${spring.brevo.senderEmail}")
@@ -33,7 +33,7 @@ public class BrevoEmailService {
 
     public void sendEmailWithAttachment(SendEmailRequest emailRequest) {
         try {
-            String url = API_URL + "";
+            String url = API_URL + "/smtp/emails";
             Gson gson = new Gson();
 
             String encodedFile = fileService.encodeFileToBase64(AppContext.attachmentPath);
